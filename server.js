@@ -1,14 +1,17 @@
 // server.js
 
-var url = require('url'),
+var fs = require('fs'),
+    url = require('url'),
     http = require('http'),
-    port = process.env.PORT || 3000;
+    port = process.env.PORT || 3000,
+    usage = fs.readFileSync('usage.html', 'utf8');
 
 http.createServer(function (req, res) {
     'use strict';
 	console.log('Path: ' + url.parse(req.url).path);
 	if (url.parse(req.url).pathname.toLowerCase() != '/jsonp') {
-		res.writeHead(404);
+		res.writeHead(404, {'Content-Type': 'text/html'});
+        res.write(usage, 'utf8');
 		res.end();
 	} else {
 		res.writeHead(200, {'Content-Type': 'application/javascript'});

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>JSONP Server Usage</title>
+        <style>
+        
+        </style>
+    </head>
+    <body>
+        <h1>JSONP Server Usage</h1>
+        <p>This JSONP server takes a get request at the base URL,
+        jsonp-server.heroku.com/json with two name/value pairs of url and
+        callback. The values must be escaped using a function such as
+        javascript's encodeURIComponent().</p>
+        <p>The server replies with javascript which invokes the specified
+        callback function with four arguments in the form
+        <span style="font-family:monospace;"><i>callback</i>({<i>options</i>},
+        "<i>status code</i>", {<i>headers</i>}, "<i>content</i>");</span>.<br>
+        
+        </p>
+    </body>
+</html>
